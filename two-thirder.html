@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/foundation/6.1.1/foundation.min.css">
+</head>
+<body style="margin: 5px; padding: 5px;">
+<div class="row">
+  <div class="small-12 large-12 columns">
+  <div id="seed" class="slider" data-slider data-initial-start="20" data-initial-end="75" data-decimal="0">
+    <span class="slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="sliderOutput1"></span>
+    <span class="slider-fill" data-slider-fill></span>
+  </div>
+  
+  </div>
+  <div class="row">
+  	 <div class="small-12 large-4 columns">
+  	 	<input type="number" id="sliderOutput1">
+  	 	
+  	 	
+  	 </div>
+       	 <div class="small-12 large-4 columns">
+            <input type="number" id="input2">
+</div>
+       	 <div class="small-12 large-4 columns">
+            <input type="number" id="input3">
+</div>
+  </div>
+</div>
+
+
+
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/foundation/6.1.1/foundation.min.js"></script>
+  <!-- Other JS plugins can be included here -->
+
+  <script>
+    $(document).foundation();
+             $(document).ready(function() {
+
+               var seed;
+               var input2 = document.getElementById("input2");
+                              var input3 = document.getElementById("input3");
+
+            $('[data-slider]').on('moved.zf.slider', function(e,handle) {
+		var id = $(this).attr('id'); // The id of the element that raised the event
+		var value = $(handle).attr("aria-valuenow");
+    console.log(seed);
+		if (id=="seed"){
+			seed = value;
+      input2.value = seed * 2;
+      input3.value = seed;
+		}
+		});
+         });
+
+  </script>
+</body>
+</html>
